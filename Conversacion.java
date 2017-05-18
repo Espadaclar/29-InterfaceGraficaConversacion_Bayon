@@ -40,6 +40,7 @@ public class Conversacion extends Application
     Button botonEnviar = new Button("Enviar");
     contenedorVertical.getChildren().add(botonEnviar);
     
+    //código para poner la barra de scroll.
     ScrollPane zonaScroll = new ScrollPane();
     contenedorVertical.getChildren().add(zonaScroll);
     VBox zonaComentarios = new VBox();
