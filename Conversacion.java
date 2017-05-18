@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 
 
 
@@ -39,14 +40,19 @@ public class Conversacion extends Application
     Button botonEnviar = new Button("Enviar");
     contenedorVertical.getChildren().add(botonEnviar);
     
+    ScrollPane zonaScroll = new ScrollPane();
+    contenedorVertical.getChildren().add(zonaScroll);
+    VBox zonaComentarios = new VBox();
+    zonaScroll.setContent(zonaComentarios);
+    
     botonEnviar.setOnAction(event -> {
     	if(!campoNombre.getText().isEmpty() && !campoComentario.getText().isEmpty())
         {
           Comentario comentario = new Comentario(campoNombre.getText(), campoComentario.getText());
           Label nombreEtiqueta = new Label("Nombre: " + comentario.getNombre());
           Label comentarioEtiqueta = new Label("Comentario: " + comentario.getComentario());
-          contenedorVertical.getChildren().add(nombreEtiqueta);
-          contenedorVertical.getChildren().add(comentarioEtiqueta);          
+          zonaComentarios.getChildren().add(nombreEtiqueta);
+          zonaComentarios.getChildren().add(comentarioEtiqueta);          
         }
     });
     
